@@ -1,0 +1,21 @@
+{
+  "car": [
+    {
+      "_id": "123",
+      "name": "harry suzulu",
+      "vendor": "momo shulori",
+      "description": "something about thei car",
+      "img": "https://images.unsplash.com/photo-1569171206684-dfb2749d96fd?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9",
+      "maxSpeed": 200
+    },
+    {
+      "name": "123",
+      "vendor": "123",
+      "description": "",
+      "img": "123",
+      "maxSpeed": 0,
+      "isHybrid": false,
+      "_id": "5eRgWW6"
+    }
+  ]
+}
