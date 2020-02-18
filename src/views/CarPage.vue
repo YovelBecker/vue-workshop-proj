@@ -34,29 +34,32 @@ export default {
   computed: {
     carsToShow() {
       let { txt, isHybrid, maxSpeed } = this.filterBy;
-      let cars = [...this.cars];
+      let filteredCars = [...this.cars];
 
       txt = txt.toLowerCase().trim();
       if (txt) {
-        cars = cars.filter(car => {
-          return car.name && car.name.toLowerCase().trim().includes(txt);
+        filteredCars = filteredCars.filter(car => {
+          return (
+            car.name &&
+            txt ===
+              car.name
+                .toLowerCase()
+                .trim()
+                .includes(txt)
+          );
         });
       }
-      console.log("cars 1 ", cars);
-
       if (maxSpeed > 0) {
         // if 0 don't filter
-        cars = cars.filter(car => {
-          return cars.maxSpeed < maxSpeed;
+        filteredCars = filteredCars.filter(car => {
+          return filteredCars.maxSpeed < maxSpeed;
         });
       }
-      console.log("cars 2 ", cars);
-      cars = cars.filter(car => {
-        // debugger;
+      filteredCars = filteredCars.filter(car => {
+        // car.isHybrid is possibly not initialized
         return !!car.isHybrid === isHybrid;
       });
-      console.log("cars 3", cars);
-      return cars;
+      return filteredCars;
     },
     maxSpeed() {
       return Math.max(...this.cars.map(car => car.maxSpeed));
