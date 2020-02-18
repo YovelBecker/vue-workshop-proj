@@ -9,13 +9,34 @@
       "maxSpeed": 200
     },
     {
-      "name": "123",
-      "vendor": "123",
-      "description": "",
-      "img": "123",
-      "maxSpeed": 0,
-      "isHybrid": false,
-      "_id": "5eRgWW6"
+      "name": "Patrick",
+      "vendor": "Marr",
+      "description": "Franzin",
+      "img": "Erica"
+    },
+    {
+      "name": "Whitney",
+      "vendor": "Rice",
+      "description": "Lafave",
+      "img": "Alunde"
+    },
+    {
+      "name": "Vaibhavi",
+      "vendor": "Peltonen",
+      "description": "Judy",
+      "img": "Olson"
+    },
+    {
+      "name": "Toula",
+      "vendor": "Farrell",
+      "description": "Sjaardema",
+      "img": "Suesskind"
+    },
+    {
+      "name": "Linda",
+      "vendor": "Schall",
+      "description": "Neilson",
+      "img": "Vickers"
     }
   ]
 }

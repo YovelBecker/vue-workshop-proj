@@ -4,7 +4,7 @@ var axios = Axios.create({
     withCredentials: true,
     headers: {
         'Access-Control-Allow-Origin': '*',
-      }
+    }
 });
 
 
@@ -21,7 +21,7 @@ export default {
 
 async function get() {
     const { data } = await axios.get(BASE_URL)
-    return data
+    return data || [];
 }
 
 async function getById(carId) {
@@ -35,14 +35,13 @@ async function save(car) {
         return data
     } else {
 
-        car.img= car.img || 'https://loremflickr.com/600/600/' + car.vendor
+        car.img = car.img || 'https://loremflickr.com/600/600/' + car.vendor
         const { data } = await axios.post(`${BASE_URL}`, car)
         return data
     }
 }
 
 async function remove(carId) {
-    console.log('deleting')
     await axios.delete(`${BASE_URL}/${carId}`)
 }
 
