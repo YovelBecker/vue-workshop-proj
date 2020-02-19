@@ -1,32 +1,46 @@
-[
+{
+  "car": [
     {
-        "name": "Patrick",
-        "vendor": "Marr",
-        "description": "Franzin",
-        "img": "Erica"
+      "_id": "6",
+      "name": "harry suzulu",
+      "vendor": "momo shulori",
+      "description": "something about thei car",
+      "maxSpeed": 200
     },
     {
-        "name": "Whitney",
-        "vendor": "Rice",
-        "description": "Lafave",
-        "img": "Alunde"
+      "name": "Patrick",
+      "vendor": "Marr",
+      "description": "Franzin",
+      "_id": "5",
+      "maxSpeed": 345
     },
     {
-        "name": "Vaibhavi",
-        "vendor": "Peltonen",
-        "description": "Judy",
-        "img": "Olson"
+      "name": "Whitney",
+      "vendor": "Rice",
+      "description": "Lafave",
+      "_id": "4",
+      "maxSpeed": 2
     },
     {
-        "name": "Toula",
-        "vendor": "Farrell",
-        "description": "Sjaardema",
-        "img": "Suesskind"
+      "name": "Vaibhavi",
+      "vendor": "Peltonen",
+      "description": "Judy",
+      "_id": "3",
+      "maxSpeed": 14
     },
     {
-        "name": "Linda",
-        "vendor": "Schall",
-        "description": "Neilson",
-        "img": "Vickers"
+      "name": "Toula",
+      "vendor": "Farrell",
+      "description": "Sjaardema",
+      "_id": "2",
+      "maxSpeed": 52
+    },
+    {
+      "name": "Linda",
+      "vendor": "Schall",
+      "description": "Neilson",
+      "_id": "1",
+      "maxSpeed": 122
     }
-]
+  ]
+}

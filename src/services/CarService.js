@@ -34,8 +34,6 @@ async function save(car) {
         const { data } = await axios.put(`${BASE_URL}/${car._id}`, car)
         return data
     } else {
-
-        car.img = car.img || 'https://loremflickr.com/600/600/' + car.vendor
         const { data } = await axios.post(`${BASE_URL}`, car)
         return data
     }

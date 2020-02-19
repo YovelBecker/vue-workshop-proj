@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "dev":"code . & npm run serve",
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
-    "json-server": "json-server --watch db.json --id _id"
+    "json-server": "json-server --watch cars.json --id _id"
   },
   "dependencies": {
     "axios": "^0.19.2",

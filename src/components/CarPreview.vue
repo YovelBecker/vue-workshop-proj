@@ -6,12 +6,9 @@
         <h4>{{car.vendor}}</h4>
         <h5 v-show="car.isHybrid" class="is-hybrid">I'm Hybrid!</h5>
         <h5>Max Speed: {{car.maxSpeed}}</h5>
-        <!-- <router-link :to="`car/${car._id}`">
-          <button class="btn shadow">More Info</button>
-        </router-link> -->
           <button @click.prevent="onRemoveCar" class="btn shadow">Remove Car</button>
       </div>
-      <img :src="`@/assets/cars/car._id`" :alt="car.vendor" />
+      <img :src="require(`@/assets/cars/${car._id}.png`)" :alt="car.vendor" />
     </div>
   </div>
 </template>
@@ -48,8 +45,6 @@ export default {
   }
   img {
     width: 180px;
-    min-height:180px;
-    object-fit: cover;
   }
   .card-content {
     max-width: 100%;
