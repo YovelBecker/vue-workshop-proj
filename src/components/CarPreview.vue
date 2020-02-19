@@ -11,7 +11,7 @@
         </router-link> -->
           <button @click.prevent="onRemoveCar" class="btn shadow">Remove Car</button>
       </div>
-      <img :src="car.img" :alt="car.vendor" />
+      <img :src="`@/assets/cars/car._id`" :alt="car.vendor" />
     </div>
   </div>
 </template>
