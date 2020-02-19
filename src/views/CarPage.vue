@@ -1,9 +1,12 @@
 <template>
   <div class="car-page-container">
-    <template v-if="carsToShow">
-      <CarFilter :maxSpeed="maxSpeed" @setFilter="setFilter" />
-      <CarList @removeCar="removeCar" :cars="carsToShow" />
-    </template>
+    <CarFilter
+      :txt="filterBy.txt"
+      :isHybrid="filterBy.isHybrid"
+      :maxSpeed="filterBy.maxSpeed"
+      @setFilter="setFilter"
+    />
+    <CarList v-if="carsToShow.length" @removeCar="removeCar" :cars="carsToShow" />
   </div>
 </template>
 
@@ -17,25 +20,46 @@ export default {
   name: "CarPage",
   data() {
     return {
-      cars: null,
-      filterBy: null
+      cars: [],
+      filterBy: {
+        txt: "",
+        maxSpeed: 0,
+        isHybrid: false
+      }
     };
   },
   async created() {
-    const cars = await CarService.get();
-    this.cars = cars;
+    this.loadCars();
   },
   computed: {
     carsToShow() {
-      if (!this.filterBy) return this.cars;
-      if (!this.filterBy.txt.length) delete this.filterBy.txt;
-      return this.cars.filter(car => {
-        return (
-          (car.maxSpeed > 0 && car.maxSpeed <= this.filterBy.maxSpeed) ||
-          car.vendor.includes(this.filterBy.txt) ||
-          car.name.includes(this.filterBy.txt)
-        );
+      let { txt, isHybrid, maxSpeed } = this.filterBy;
+      let filteredCars = [...this.cars];
+
+      txt = txt.toLowerCase().trim();
+      if (txt) {
+        filteredCars = filteredCars.filter(car => {
+          return (
+            car.name &&
+            txt ===
+              car.name
+                .toLowerCase()
+                .trim()
+                .includes(txt)
+          );
+        });
+      }
+      if (maxSpeed > 0) {
+        // if 0 don't filter
+        filteredCars = filteredCars.filter(car => {
+          return filteredCars.maxSpeed < maxSpeed;
+        });
+      }
+      filteredCars = filteredCars.filter(car => {
+        // car.isHybrid is possibly not initialized
+        return !!car.isHybrid === isHybrid;
       });
+      return filteredCars;
     },
     maxSpeed() {
       return Math.max(...this.cars.map(car => car.maxSpeed));
@@ -44,6 +68,12 @@ export default {
   methods: {
     setFilter(filterBy) {
       this.filterBy = filterBy;
+    },
+    async loadCars() {
+      const cars = await CarService.get(this.filterBy);
+      console.log("cars", cars);
+
+      this.cars = cars;
     },
     async removeCar({ id: carId, name }) {
       EventBus.$emit(MSG_EVENT, {
@@ -56,7 +86,7 @@ export default {
           txt: `Removed ${name}`,
           type: "success"
         });
-        this.cars = this.cars.filter(car => car._id !== carId)
+        this.cars = this.cars.filter(car => car._id !== carId);
       }, 3000);
     }
   },
@@ -68,4 +98,7 @@ export default {
 </script>
 
 <style>
+.car-page-container {
+  min-width: 960px;
+}
 </style>
