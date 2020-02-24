@@ -2,7 +2,7 @@
   <form @submit.prevent="setFilter" class="filter-container shadow">
     <div class="flex">
       <label class="field">
-        <div class="text">Max Speed</div>
+        <div class="text">{{ 'max Speed' | capitalize }}</div>
         <input v-model="filterBy.maxSpeed" type="text" placeholder="Max Speed" name="txt" />
       </label>
       <label class="field">

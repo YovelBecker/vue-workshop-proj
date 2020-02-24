@@ -1,6 +1,6 @@
 <template>
   <div v-if="car" class="car-details-container shadow">
-    <h1>{{car.name}}</h1>
+    <h1>{{car.name | capitalize }}</h1>
     <span>
       <span class="car-content">
         <h1>{{car.vendor}}</h1>

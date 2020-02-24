@@ -9,6 +9,10 @@
     <router-view></router-view>
     <hr />
     <button @click="showMsg">Show Msg</button>
+    <hr />
+    Filters:
+    {{ new Date() | moment("from", "Jan. 11th, 2000", true) }}
+    <span>{{ new Date() | moment('add', '6 days', 'calendar', null, { nextWeek: '[Happens in a week]' }) }}</span>
   </div>
 </template>
 
@@ -21,6 +25,7 @@ export default {
       fStyle: "italic",
       fSize: 20,
       isShown: true
+      // lastLoginTimestamp: new Date().
     };
   },
   computed: {
@@ -30,7 +35,7 @@ export default {
   },
   methods: {
     showMsg() {
-      EventBus.$emit(MSG_EVENT, { txt: "Hello from Messing", type: 'success' });
+      EventBus.$emit(MSG_EVENT, { txt: "Hello from Messing", type: "success" });
     }
   }
 };

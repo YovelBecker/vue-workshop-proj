@@ -4,6 +4,9 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import './styles/main.scss'
+import './filters';
+
+Vue.use(require('vue-moment'));
 
 Vue.config.productionTip = false
 
