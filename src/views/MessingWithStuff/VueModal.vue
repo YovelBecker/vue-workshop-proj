@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import eventBus, { ALERT_SUCCESS } from "@/EventBus";
 
 export default {
   methods: {
@@ -32,7 +31,6 @@ export default {
     }
   },
   created() {
-    
     document.querySelector('body').addEventListener("keyup", this.close);
   },
   destroyed() {

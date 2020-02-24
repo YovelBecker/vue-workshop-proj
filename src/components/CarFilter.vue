@@ -3,7 +3,7 @@
     <div class="flex">
       <label class="field">
         <div class="text">{{ 'max Speed' | capitalize }}</div>
-        <input v-model="filterBy.maxSpeed" type="text" placeholder="Max Speed" name="txt" />
+        <input v-model.number="filterBy.maxSpeed" type="text" placeholder="Max Speed" name="txt" />
       </label>
       <label class="field">
         <div class="text">Text</div>
@@ -60,10 +60,7 @@ export default {
   methods: {
     setFilter() {
       if (this.filterBy.isHybrid === null) delete this.filterBy.isHybrid;
-      this.$emit("setFilter", {
-        ...this.filterBy,
-        maxSpeed: +this.filterBy.maxSpeed
-      });
+      this.$emit("setFilter", { ...this.filterBy });
     }
   }
 };

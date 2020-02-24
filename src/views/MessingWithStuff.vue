@@ -8,23 +8,41 @@
     <hr />
     <router-view></router-view>
     <hr />
-    <button @click="showMsg">Show Msg</button>
+    <button @click="showMsg">Show MSG component</button>
+    <hr />Filters:
+    <div>
+      <span>{{ new Date() | moment("YYYY") }}</span>
+    </div>
+    <div>
+      <span>{{ new Date() | moment('add', '6 days', 'calendar', null, { nextWeek: '[Happens in a week]' }) }}</span>
+    </div>
     <hr />
-    Filters:
-    {{ new Date() | moment("from", "Jan. 11th, 2000", true) }}
-    <span>{{ new Date() | moment('add', '6 days', 'calendar', null, { nextWeek: '[Happens in a week]' }) }}</span>
+    <button @click="isLoginShown = true">Show Modal</button>
+    <VueModal v-if="isLoginShown" @close="isLoginShown = false">
+      <h1 slot="header">Login</h1>
+      <form slot="body">
+        <input type="text" placeholder="Username" />
+        <input type="password" placeholder="Password" />
+        <button>Login</button>
+      </form>
+      <p slot="footer">
+        Forgot your password?
+        <a href="#">Check here!</a>
+      </p>
+    </VueModal>
   </div>
 </template>
 
 <script>
 import EventBus, { MSG_EVENT } from "../services/EventBusService";
-
+import VueModal from "./MessingWithStuff/VueModal";
 export default {
   data() {
     return {
       fStyle: "italic",
       fSize: 20,
-      isShown: true
+      isShown: true,
+      isLoginShown: false
       // lastLoginTimestamp: new Date().
     };
   },
@@ -37,6 +55,9 @@ export default {
     showMsg() {
       EventBus.$emit(MSG_EVENT, { txt: "Hello from Messing", type: "success" });
     }
+  },
+  components: {
+    VueModal
   }
 };
 </script>

@@ -3,13 +3,9 @@
     <router-link is="a" to="/">home</router-link>
     <router-link to="/car">cars</router-link>
     <router-link to="/car/edit">Add Car</router-link>
-    <router-link to="/about">about</router-link>
+    <router-link to="/messing">sandbox</router-link>
   </div>
 </template>
-
-<script>
-export default {};
-</script>
 
 <style lang="scss">
 .navbar-container {
