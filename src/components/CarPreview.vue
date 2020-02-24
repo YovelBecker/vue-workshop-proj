@@ -15,6 +15,7 @@
 
 <script>
 import CarService from "../services/CarService";
+
 export default {
   props: {
     car: {

@@ -17,6 +17,7 @@
 <script>
 import CarService from "../services/CarService";
 export default {
+  
   data() {
     return {
       car: null

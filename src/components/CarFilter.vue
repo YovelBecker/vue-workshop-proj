@@ -12,9 +12,6 @@
     </div>
     <div class="flex">
       <label class="field">
-        <!-- Speed -->
-        <!-- <div class="text">Max Speed</div> -->
-        <!-- <input v-model="filterBy.maxSpeed" type="number" min="0" name="maxSpeed" /> -->
         <div class="text">Search</div>
         <input v-model="filterBy.isHybrid" type="checkbox" name="isHybrid" />
         <span class="custom-checkbox"></span>
@@ -30,19 +27,22 @@
 export default {
   name: "CarFilter",
   props: {
-    maxSpeed: {
-      isRequired: false,
-      type: Number
-    },
-    isHybrid: {
-      type: Boolean,
-      default: false
-    },
     txt: {
       type: String,
-      default: ""
-    }
+      default: "txt not supplied",
+      validator(value) {
+        return value.length < 30;
+      }
+    },
+    isHybrid: Boolean,
+    maxSpeed: Number
   },
+  // props: {
+  //   txt: String,
+  //   isHybrid: Boolean,
+  //   maxSpeed: Number
+  // },
+  // props: ["txt", "isHybrid", "maxSpeed"],
   data() {
     return {
       filterBy: {

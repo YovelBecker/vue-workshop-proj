@@ -1,8 +1,10 @@
 <template>
-  <div v-if="msg" class="msg-container shadow" :class="msgType">
-    <span class="side-bar"></span>
-    <h3>{{msg.txt}}</h3>
-  </div>
+  <transition name="fade">
+    <div v-if="msg" class="msg-container shadow" :class="msgType">
+      <span class="side-bar"></span>
+      <h3>{{msg.txt}}</h3>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -18,7 +20,7 @@ export default {
     EventBus.$on(MSG_EVENT, this.showMsg);
   },
   destroyed() {
-      EventBus.$off(MSG_EVENT);
+    EventBus.$off(MSG_EVENT);
   },
   computed: {
     msgType() {
@@ -68,10 +70,34 @@ export default {
     background-color: rgb(238, 235, 50);
   }
 }
-.warning {
+.warning1 {
   background-color: rgba(255, 207, 199, 0.74);
   span {
     background-color: rgb(238, 72, 50);
   }
+}
+
+// .fade-enter-active, .fade-leave-active {
+//   transition: opacity .5s;
+// }
+// .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+//   opacity: 0;
+// }
+
+.fade-enter {
+  opacity: 0;
+  bottom: 50px;
+}
+
+.fade-enter-active {
+  transition: opacity 0.2s, bottom 0.2s;
+}
+
+.fade-leave-active {
+  transition: opacity 0.2s, bottom 0.2s;
+}
+.fade-leave-to {
+  opacity: 0;
+  bottom: 70px;
 }
 </style>

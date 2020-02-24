@@ -6,7 +6,7 @@
       :maxSpeed="filterBy.maxSpeed"
       @setFilter="setFilter"
     />
-    <CarList v-if="carsToShow.length" @removeCar="removeCar" :cars="carsToShow" />
+    <!-- <CarList v-if="carsToShow.length" @removeCar="removeCar" :cars="carsToShow" /> -->
   </div>
 </template>
 

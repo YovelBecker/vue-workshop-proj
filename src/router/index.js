@@ -5,6 +5,9 @@ import About from '../views/About'
 import CarPage from '../views/CarPage'
 import CarDetails from '../views/CarDetails'
 import CarEdit from '../views/CarEdit'
+import MessingWithStuff from '../views/MessingWithStuff'
+import MessingHome from '../views/MessingWithStuff/MessingHome'
+import MessingPostPage from '../views/MessingWithStuff/MessingPostPage'
 
 Vue.use(VueRouter)
 
@@ -33,6 +36,15 @@ const routes = [
     path: '/car/:id',
     name: 'Car Details',
     component: CarDetails
+  },
+  {
+    path: '/messing',
+    name: 'Messing With Stuff',
+    component: MessingWithStuff,
+    children: [
+      { path: '', component: MessingHome },
+      { path: 'post', component: MessingPostPage },
+    ]
   },
 ]
 

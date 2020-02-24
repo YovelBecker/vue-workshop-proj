@@ -15,6 +15,9 @@ import Footer from "./components/Footer.vue";
 import Msg from "./components/Msg.vue";
 
 export default {
+  data() {
+    return {};
+  },
   components: {
     Header,
     Footer,
@@ -28,7 +31,6 @@ export default {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  
 }
 main {
   padding: 0 20px;
