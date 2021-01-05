@@ -9,7 +9,7 @@
     "json-server": "json-server --watch cars.json --id _id"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "core-js": "^3.6.4",
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.11",
